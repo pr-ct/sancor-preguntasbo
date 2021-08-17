@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "visualizador-preguntas-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/visualizadorPreguntas/VisualizadorPreguntasWebPart.js",
+          "manifest": "./src/webparts/visualizadorPreguntas/VisualizadorPreguntasWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "VisualizadorPreguntasWebPartStrings": "lib/webparts/visualizadorPreguntas/loc/{locale}.js"
+  }
+}
