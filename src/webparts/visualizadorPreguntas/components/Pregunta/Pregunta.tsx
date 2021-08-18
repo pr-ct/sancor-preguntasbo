@@ -11,6 +11,6 @@ export default class Pregunta extends React.Component<IPreguntaProps, {}> {
                 <p>{this.props.idPregunta}</p>
                 <p>{this.props.descripcion}</p>
             </div>
-        )
+        );
     }
 }

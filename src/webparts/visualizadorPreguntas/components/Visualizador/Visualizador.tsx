@@ -5,6 +5,8 @@ import { escape } from '@microsoft/sp-lodash-subset';
 
 import Pregunta from '../Pregunta/Pregunta';
 
+// import ManejadorAPI from '../../../../utils/ManejadorAPI';
+
 export default class VisualizadorPreguntas extends React.Component<IVisualizadorPreguntasProps, {}> {
   public render(): React.ReactElement<IVisualizadorPreguntasProps> {
     return (
