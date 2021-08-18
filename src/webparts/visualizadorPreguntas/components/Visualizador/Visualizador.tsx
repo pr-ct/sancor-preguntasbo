@@ -1,14 +1,32 @@
 import * as React from 'react';
 import styles from '../VisualizadorPreguntas.module.scss';
-import { IVisualizadorPreguntasProps } from './IVisualizadorProps';
+
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import Pregunta from '../Pregunta/Pregunta';
+//import { IPreguntaProps } from '../Pregunta/IPreguntaProps';
+import ManejadorAPI from '../../../../utils/manejadorAPI';
+import { IVisualizadorProps } from './IVisualizadorProps';
+import { IVisualizadorState } from './IVisualizadorState';
 
-// import ManejadorAPI from '../../../../utils/ManejadorAPI';
+export default class Visualizador extends React.Component<IVisualizadorProps, IVisualizadorState> {
+  private man: ManejadorAPI = new ManejadorAPI(this.props.urlSitio, this.props.nombreLista);
 
-export default class VisualizadorPreguntas extends React.Component<IVisualizadorPreguntasProps, {}> {
-  public render(): React.ReactElement<IVisualizadorPreguntasProps> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      datos: []
+    }
+  }
+    
+  async componentDidMount() {
+    this.setState({
+      datos: await this.man.obtenerItems()
+    })
+    console.log(this.state.datos);
+  }
+
+  public render(): React.ReactElement<IVisualizadorProps> {
     return (
       <div className={ styles.visualizadorPreguntas }>
         <div className={ styles.container }>
@@ -16,15 +34,15 @@ export default class VisualizadorPreguntas extends React.Component<IVisualizador
             <div className={ styles.column }>
               <span className={ styles.title }>Preguntas Back Office</span>
               <p className={ styles.subTitle }>Visualizador de hilos de preguntas.</p>
-              <p className={ styles.description }>{escape()}</p>
               {/* pruebas */}
               <p><span>URL del sitio:</span> {this.props.urlSitio}</p>
+              <p><span>Título del sitio:</span>{}</p>
               <p><span>Nombre de la lista:</span> {this.props.nombreLista}</p>
 
-              <Pregunta 
-                idPregunta={1}
-                descripcion={"Esta es una prueba del componente Preguntas"}
-              />
+              {/* <Pregunta
+                idPregunta={this.state.datos.d.results[0].Id}
+                descripcion={this.state.datos.d.results[0].Contenido}
+              /> */}
             </div>
           </div>
         </div>

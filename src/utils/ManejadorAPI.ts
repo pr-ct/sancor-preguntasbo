@@ -1,3 +1,5 @@
+
+
 export default class ManejadorAPI {
     private apiEndpoint: string = "/_api/web/lists/";
     private _urlSitio: string;
@@ -13,19 +15,24 @@ export default class ManejadorAPI {
     set nombreLista(val: string) {
         this._nombreLista = val;
     }
+    get nombreLista() {
+        return this._nombreLista;
+    }
 
     constructor(url: string, lista: string) {
         this.urlSitio = url;
         this.nombreLista = lista;
     }
 
-    public async obtenerItemPorId(id: number): Promise<any> { // revisar el tipo de la promesa
-        const response = await fetch(this.urlSitio + this.apiEndpoint + `GetByTitle(${this.nombreLista})/items${id}`, {
+    public async obtenerItems(): Promise<any> { // revisar el tipo de la promesa
+        //console.log(this.urlSitio, this.apiEndpoint, this.nombreLista);
+        const response = await fetch(this.urlSitio + this.apiEndpoint + `GetByTitle(\'${this.nombreLista}\')/items`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json;odata=verbose'
             }
-        })
-        return await response.json();
+        });
+        return response.json();
     }
+    // implementar la función para una pregunta y sus continuaciones
 }

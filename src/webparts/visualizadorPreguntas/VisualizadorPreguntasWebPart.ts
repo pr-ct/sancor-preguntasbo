@@ -9,8 +9,10 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'VisualizadorPreguntasWebPartStrings';
 import VisualizadorPreguntas from './components/Visualizador/Visualizador';
-import { IVisualizadorPreguntasProps } from './components/Visualizador/IVisualizadorProps';
+import { IVisualizadorProps } from './components/Visualizador/IVisualizadorProps';
 
+import ManejadorAPI from '../../utils/manejadorAPI';
+import { nombreLista, urlSitio } from 'VisualizadorPreguntasWebPartStrings';
 export interface IVisualizadorPreguntasWebPartProps {
   urlSitio: string;
   nombreLista: string;
@@ -19,12 +21,13 @@ export interface IVisualizadorPreguntasWebPartProps {
 export default class VisualizadorPreguntasWebPart extends BaseClientSideWebPart<IVisualizadorPreguntasWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IVisualizadorPreguntasProps> = React.createElement(
+    const element: React.ReactElement<IVisualizadorProps> = React.createElement(
       VisualizadorPreguntas, {
         urlSitio: this.properties.urlSitio,
         nombreLista: this.properties.nombreLista
       });
-
+    let man: ManejadorAPI = new ManejadorAPI(this.properties.urlSitio, this.properties.nombreLista);
+    
     ReactDom.render(element, this.domElement);
   }
 
