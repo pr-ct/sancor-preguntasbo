@@ -1,4 +1,4 @@
-import ManejadorAPI from "./manejadorAPI";
+import ManejadorAPI from "./ManejadorAPI";
 
 export default class ManejadorHilo {
     // para hacer

@@ -1,6 +1,6 @@
 declare interface IVisualizadorPreguntasWebPartStrings {
   PropertyPaneDescription: string;
-  GroupName: string;
+  BasicGroupName: string;
   DescriptionFieldLabel: string;
 
   urlSitio: string;

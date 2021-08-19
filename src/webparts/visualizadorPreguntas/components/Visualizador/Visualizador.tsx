@@ -1,11 +1,11 @@
 import * as React from 'react';
-import styles from '../VisualizadorPreguntas.module.scss';
+import styles from './Visualizador.module.scss';
 
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import Pregunta from '../Pregunta/Pregunta';
 //import { IPreguntaProps } from '../Pregunta/IPreguntaProps';
-import ManejadorAPI from '../../../../utils/manejadorAPI';
+import ManejadorAPI from '../../../../utils/ManejadorAPI';
 import { IVisualizadorProps } from './IVisualizadorProps';
 import { IVisualizadorState } from './IVisualizadorState';
 
@@ -19,10 +19,10 @@ export default class Visualizador extends React.Component<IVisualizadorProps, IV
     }
   }
     
-  async componentDidMount() {
+  public async componentDidMount() {
     this.setState({
       datos: await this.man.obtenerItems()
-    })
+    }),
     console.log(this.state.datos);
   }
 
