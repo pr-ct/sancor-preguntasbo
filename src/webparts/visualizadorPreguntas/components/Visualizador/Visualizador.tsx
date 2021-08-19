@@ -12,18 +12,17 @@ import { IVisualizadorState } from './IVisualizadorState';
 export default class Visualizador extends React.Component<IVisualizadorProps, IVisualizadorState> {
   private man: ManejadorAPI = new ManejadorAPI(this.props.urlSitio, this.props.nombreLista);
 
-  constructor(props) {
+  constructor(props: Readonly<IVisualizadorProps>) {
     super(props);
     this.state = {
       datos: []
-    }
+    };
   }
     
   async componentDidMount() {
-    this.setState({
+    this.setState( {
       datos: await this.man.obtenerItems()
-    })
-    console.log(this.state.datos);
+    });
   }
 
   public render(): React.ReactElement<IVisualizadorProps> {
@@ -39,10 +38,9 @@ export default class Visualizador extends React.Component<IVisualizadorProps, IV
               <p><span>Título del sitio:</span>{}</p>
               <p><span>Nombre de la lista:</span> {this.props.nombreLista}</p>
 
-              {/* <Pregunta
-                idPregunta={this.state.datos.d.results[0].Id}
-                descripcion={this.state.datos.d.results[0].Contenido}
-              /> */}
+              {<Pregunta
+                datos={this.state.datos}
+              />}
             </div>
           </div>
         </div>

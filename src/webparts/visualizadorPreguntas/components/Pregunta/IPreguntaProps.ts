@@ -1,7 +1,8 @@
 export interface IPreguntaProps {
-    idPregunta: number;
-    descripcion: string;
 
+    // idPregunta: number;
+    // contenido: string;
+    datos: any;
     // remitente: String; // revisar tipo de datos
     // contenido: String; <- descripción
     // respuesta: String;
