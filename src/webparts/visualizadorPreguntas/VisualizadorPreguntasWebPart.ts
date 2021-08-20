@@ -26,8 +26,6 @@ export default class VisualizadorPreguntasWebPart extends BaseClientSideWebPart<
         urlSitio: this.properties.urlSitio,
         nombreLista: this.properties.nombreLista
       });
-    let man: ManejadorAPI = new ManejadorAPI(this.properties.urlSitio, this.properties.nombreLista);
-    
     ReactDom.render(element, this.domElement);
   }
 
