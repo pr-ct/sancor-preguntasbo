@@ -11,7 +11,6 @@ import * as strings from 'VisualizadorPreguntasWebPartStrings';
 import VisualizadorPreguntas from './components/Visualizador/Visualizador';
 import { IVisualizadorProps } from './components/Visualizador/IVisualizadorProps';
 
-import ManejadorAPI from '../../utils/manejadorAPI';
 import { nombreLista, urlSitio } from 'VisualizadorPreguntasWebPartStrings';
 export interface IVisualizadorPreguntasWebPartProps {
   urlSitio: string;
