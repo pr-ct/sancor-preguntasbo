@@ -34,5 +34,14 @@ export default class ManejadorAPI {
         });
         return response.json();
     }
-    // implementar la función para una pregunta y sus continuaciones
+
+    public async obtenerPreguntaPorId(id: string): Promise<any> {
+        const response = await fetch (this.urlSitio + this.apiEndpoint + `GetByTitle(\'${this.nombreLista}\')/items(${id})`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json;odata=verbose'
+            }
+        });
+        return response.json();
+    }
 }
