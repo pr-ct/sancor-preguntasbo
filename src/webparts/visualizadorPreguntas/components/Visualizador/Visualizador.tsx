@@ -11,6 +11,7 @@ import { IVisualizadorState } from './IVisualizadorState';
 
 export default class Visualizador extends React.Component<IVisualizadorProps, IVisualizadorState> {
   private man: ManejadorAPI = new ManejadorAPI(this.props.urlSitio, this.props.nombreLista);
+  private urlParams: URLSearchParams = new URLSearchParams(window.location.search);
 
   constructor(props: Readonly<IVisualizadorProps>) {
     super(props);
@@ -20,8 +21,9 @@ export default class Visualizador extends React.Component<IVisualizadorProps, IV
   }
     
   async componentDidMount() {
+    console.log(this.urlParams);
     this.setState( {
-      datos: await this.man.obtenerItems()
+      datos: await this.man.obtenerPreguntaPorId(this.urlParams.get("id"))
     });
   }
 
