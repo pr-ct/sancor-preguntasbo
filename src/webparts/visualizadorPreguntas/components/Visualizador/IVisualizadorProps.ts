@@ -1,4 +1,4 @@
-export interface IVisualizadorProps {
+export default interface IVisualizadorProps {
   urlSitio: string;
   nombreLista: string;
 }

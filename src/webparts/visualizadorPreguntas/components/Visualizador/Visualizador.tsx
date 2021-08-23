@@ -6,8 +6,8 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import Pregunta from '../Pregunta/Pregunta';
 //import { IPreguntaProps } from '../Pregunta/IPreguntaProps';
 import ManejadorAPI from '../../../../utils/manejadorAPI';
-import { IVisualizadorProps } from './IVisualizadorProps';
-import { IVisualizadorState } from './IVisualizadorState';
+import IVisualizadorProps from './IVisualizadorProps';
+import IVisualizadorState from './IVisualizadorState';
 
 export default class Visualizador extends React.Component<IVisualizadorProps, IVisualizadorState> {
   private man: ManejadorAPI = new ManejadorAPI(this.props.urlSitio, this.props.nombreLista);

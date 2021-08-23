@@ -9,7 +9,7 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'VisualizadorPreguntasWebPartStrings';
 import VisualizadorPreguntas from './components/Visualizador/Visualizador';
-import { IVisualizadorProps } from './components/Visualizador/IVisualizadorProps';
+import IVisualizadorProps from './components/Visualizador/IVisualizadorProps';
 
 import { nombreLista, urlSitio } from 'VisualizadorPreguntasWebPartStrings';
 export interface IVisualizadorPreguntasWebPartProps {
