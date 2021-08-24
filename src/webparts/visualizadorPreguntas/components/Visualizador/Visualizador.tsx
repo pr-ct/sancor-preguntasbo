@@ -1,11 +1,11 @@
 import * as React from 'react';
-import styles from '../VisualizadorPreguntas.module.scss';
+import styles from './Visualizador.module.scss';
 
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import Pregunta from '../Pregunta/Pregunta';
 //import { IPreguntaProps } from '../Pregunta/IPreguntaProps';
-import ManejadorAPI from '../../../../utils/manejadorAPI';
+import ManejadorAPI from '../../../../utils/ManejadorAPI';
 import IVisualizadorProps from './IVisualizadorProps';
 import IVisualizadorState from './IVisualizadorState';
 
@@ -21,15 +21,16 @@ export default class Visualizador extends React.Component<IVisualizadorProps, IV
   }
     
   async componentDidMount() {
-    console.log(this.urlParams);
+    
+    //console.log("Llamado de Visualizador:", );
     this.setState({
-      datos: await this.man.obtenerPreguntaPorId(this.urlParams.get("id"))
+      datos: await this.man.obtenerHiloPorIdInicial(parseInt(this.urlParams.get("id")))
     });
   }
 
   public render(): React.ReactElement<IVisualizadorProps> {
     return (
-      <div className={ styles.visualizadorPreguntas }>
+      <div className={ styles.visualizador }>
         <div className={ styles.container }>
           <div className={ styles.row }>
             <div className={ styles.column }>
@@ -40,9 +41,14 @@ export default class Visualizador extends React.Component<IVisualizadorProps, IV
               <p><span>Título del sitio:</span>{}</p>
               <p><span>Nombre de la lista:</span> {this.props.nombreLista}</p>
 
-              {<Pregunta
-                datos={this.state.datos}
-              />}
+              {this.state.datos.map(elem => {
+                  console.log(elem);
+                  return (
+                    <Pregunta 
+                      datos={elem}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>
