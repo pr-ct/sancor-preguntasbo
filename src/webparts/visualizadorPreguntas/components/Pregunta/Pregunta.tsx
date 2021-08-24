@@ -14,9 +14,11 @@ export default class Pregunta extends React.Component<IPreguntaProps, {}> {
         if (this.props.datos.length === 0) return null;
         return (
             <div className={styles.pregunta}>
-                <h1>{this.props.datos.d.ID} - {this.props.datos.d.Title}</h1>
-                <p></p>
-                <p>{this.props.datos.d.Contenido}</p>
+                <h1>ID: {this.props.datos.ID} - {this.props.datos.Title}</h1>
+                <h4>Contenido: </h4>
+                <p>{this.props.datos.Contenido}</p>
+                <h4>Respuesta: </h4>
+                <p>{this.props.datos.Respuesta}</p>
             </div>
         );
     }
